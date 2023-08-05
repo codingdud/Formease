@@ -8,27 +8,29 @@ function Formupdate({ setSselect, sselect }) {
   const [change,setChange]=useState(false)
   const [data, setData] = useState([])
   const [loader, setLoader] = useState(false)
-  //const [formdata,setFormdata]=useState({})
+  const BASE_URL = process.env.REACT_APP_BASE_URL || "//localhost:5001"
+
+
   useEffect(() => {
     setLoader(true);
-    axios.get(`//localhost:5001/api/sdata`)
+    axios.get(`${BASE_URL}/api/sdata`)
       /* .then((res)=>console.log(JSON.stringify(res.data))) */
       .then((res) => {
         setData(res.data)
         setSselect(res.data[0])
-        console.log(res)
+        //console.log(res)
       })
       .then(() => { 
         setLoader(false)  
         setChange(false)
       })
 
-  }, [setSselect,change])
+  }, [setSselect,change,BASE_URL])
 
   const deleteform = async (form) => {
     try {
-      console.log(form)
-      const res = await axios.delete(`//localhost:5001/api/sdata/${form}`)
+      //console.log(form)
+      const res = await axios.delete(`${BASE_URL}/api/sdata/${form}`)
       setChange(true)
       console.log(res.data);
     }
@@ -47,7 +49,7 @@ function Formupdate({ setSselect, sselect }) {
   }
   else if (data === undefined || data.length === 0) {
     return (
-      <div>no data:{console.log("nodata")}</div>
+      <div><h1>No Data To Show</h1>{console.log("nodata")}</div>
     )
   }
   else

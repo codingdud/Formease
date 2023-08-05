@@ -13,7 +13,7 @@ function Nav() {
     }
     const navstyleicon = ({ isActive }) => {
         return {
-            'background-color': isActive ? "black" : " ",
+            'background-color': isActive ? "white" : " ",
            'border-radius':isActive? "16px":" ",
         }
     }

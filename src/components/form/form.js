@@ -11,10 +11,12 @@ function Form({ setSelectform, selectform }) {
   const change=useChange()
   const [data, setData] = useState([])
   const [loader, setLoader] = useState(false)
+  const BASE_URL = process.env.REACT_APP_BASE_URL || "//localhost:5001"
+
 
   useEffect(() => {
     setLoader(true);
-    axios.get("//localhost:5001/api/fdata")
+    axios.get(`${BASE_URL}/api/fdata`)
       /* .then((res)=>console.log(JSON.stringify(res.data))) */
       .then((res) => {
         res.data.length!==0 && setSelectform(res.data[0]._id)
@@ -22,11 +24,13 @@ function Form({ setSelectform, selectform }) {
         //console.log("form",res)
       })
       .then(()=>{setLoader(false)})
-  }, [setSelectform,change.temp])
+  }, [setSelectform,change.temp,BASE_URL])
   //console.log(selectform)
+  //console.log(BASE_URL)
+
   const deleteform = async (id) => {
     try {
-      console.log(id)
+      //console.log(id)
       const res = await axios.delete(`//localhost:5001/api/fdata/${id}`)
       change.change()
       console.log(res.data);
@@ -49,7 +53,7 @@ function Form({ setSelectform, selectform }) {
   }
   else if (data === undefined || data.length === 0) {
     return (
-      <div>no data:{console.log("nodata")}
+      <div><h1 style={{"display":"inline","margin":"10px"}}>Create Form</h1>{console.log("nodata")}
       <Link to="create">
       <Addform/>
       </Link>
