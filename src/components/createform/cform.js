@@ -9,6 +9,8 @@ import { useChange } from '../context'
 function Cform() {
   const change=useChange()
   const [formData,setFormData]=useState({})
+  const BASE_URL = process.env.REACT_APP_BASE_URL || "//localhost:5001"
+
   const handleChange=(e)=>{
     setFormData({...formData,[e.target.name]:e.target.value })
   }
@@ -20,10 +22,10 @@ function Cform() {
     setFormData({})
     document.getElementById("create-form").reset()
   }
-  console.log(formData)
+  //console.log(formData)
   const sendData=async(formData)=>{
     try {
-      const res=await axios.post(`//localhost:5001/api/fdata`,formData)
+      const res=await axios.post(`${BASE_URL}/api/fdata`,formData)
       change.change()
       console.log(res.data);
 
@@ -41,16 +43,10 @@ function Cform() {
         <Heade text="Create Form"/>
         <div className='sub'> Fill the form Information</div>
         <div className='inputcontainer'>
-        <Input label={"From Id"} ob={"fid"} val={formData} change={handleChange}/>
-        </div>
-        <div className='inputcontainer'>
         <Input label={"From Name"} ob={"name"} val={formData} change={handleChange}/>
         </div>
         <div className='inputcontainer'>
         <Input label={"From Description"} ob={"desc"} val={formData} change={handleChange}/>
-        </div>
-        <div className='inputcontainer'>
-        <Input label={"Form Link"} val={formData} ob={"url"} change={handleChange}/>
         </div>
         <div className='inputcontainer'>
         <Input label={"Form labels"} val={formData} ob={"label"} change={handleChangeArray}/>

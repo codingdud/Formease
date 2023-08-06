@@ -13,13 +13,15 @@ function Updatefrom({uselect}) {
     console.log("update form",uselect)
     const [formData,setFormData]=useState({})
     const [loader,setLoader]=useState(false)
+    const BASE_URL = process.env.REACT_APP_BASE_URL || "//localhost:5001"
+
     useEffect(()=>{
         setLoader(true);
-        axios.get(`//localhost:5001/api/fdata/${uselect}`)
+        axios.get(`${BASE_URL}/api/fdata/${uselect}`)
          .then((res)=>{setFormData(res.data)
         console.log("get",res.data)})
          .then(()=>{setLoader(false)})
-    },[uselect])
+    },[uselect,BASE_URL])
     
     const handleChange=(e)=>{
       setFormData({...formData,[e.target.name]:e.target.value })
@@ -33,9 +35,9 @@ function Updatefrom({uselect}) {
         const id=formData._id
         const temp={...formData}
         delete temp['_id']
-        console.log(temp)
-        const res=await axios.put(`//localhost:5001/api/fdata/${id}`,temp)
-        console.log(res.data);
+        //console.log(temp)
+        const res=await axios.put(`${BASE_URL}/api/fdata/${id}`,temp)
+        //console.log(res.data);
         toast.success(res.data.message)
   
       } catch (error) {
@@ -49,8 +51,8 @@ function Updatefrom({uselect}) {
 
     const deleteform=async(formData)=>{
         try{
-            console.log(formData._id)
-        const res=await axios.delete(`//localhost:5001/api/fdata/${formData._id}`)
+           // console.log(formData._id)
+        const res=await axios.delete(`${BASE_URL}/api/fdata/${formData._id}`)
         console.log(res.data);
         }
         catch (error) {
