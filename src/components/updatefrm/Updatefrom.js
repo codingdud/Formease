@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import axios from 'axios'
+import Datafetching from '../loder/Datafetching'
 
 function Updatefrom({uselect}) {
     console.log("update form",uselect)
@@ -65,7 +66,7 @@ function Updatefrom({uselect}) {
     }
     if(loader){
         return(
-          <div>feaching..</div>
+          <div><Datafetching/></div>
         )
       }
       if(formData===undefined||formData==={}){

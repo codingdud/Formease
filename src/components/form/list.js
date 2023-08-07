@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./form.css"
 function list({ list, val, change }) {
   return (
     <div className='fram3'>

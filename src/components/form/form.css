@@ -61,10 +61,12 @@
     display: block;
     visibility: visible;
 }
-.delete{
+
+.delete {
     padding: 0px;
 }
-.delete:hover{
+
+.delete:hover {
     border-radius: 8px;
     background-color: rgb(39, 39, 39);
 }

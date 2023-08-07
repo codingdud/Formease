@@ -6,6 +6,7 @@ import Update from "./Update"
 import Addform from "./Addform"
 import { Link , Outlet} from "react-router-dom"
 import { useChange } from "../context"
+import Fetching from "../loder/fetching"
 
 function Form({ setSelectform, selectform }) {
   const change=useChange()
@@ -46,14 +47,14 @@ function Form({ setSelectform, selectform }) {
 
   if (loader) {
     return (
-      <div>feaching..
-        
+      <div>
+       <Fetching/>
       </div>
     )
   }
   else if (data === undefined || data.length === 0) {
     return (
-      <div><h1 style={{"display":"inline","margin":"10px"}}>Create Form</h1>{console.log("nodata")}
+      <div className="sub"><h1 style={{"display":"inline","margin":"10px"}}>Create Form</h1>{console.log("nodata")}
       <Link to="create">
       <Addform/>
       </Link>

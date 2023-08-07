@@ -37,3 +37,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+@font-face {
+  font-family: itim;
+  src: url(../public/Itim-Regular.ttf);
+}
+@font-face {
+  font-family: metro;
+  src: url(../public/Metrophobic-Regular.ttf);
+}
+@font-face {
+  font-family: azere;
+  src: url(../public/AzeretMono-VariableFont_wght.ttf);
+}

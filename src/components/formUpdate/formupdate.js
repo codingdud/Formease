@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Delete from "../form/Delete"
 import { Outlet } from 'react-router-dom'
+import Fetching from '../loder/fetching'
 
 function Formupdate({ setSselect, sselect }) {
   const [change,setChange]=useState(false)
@@ -44,12 +45,12 @@ function Formupdate({ setSselect, sselect }) {
   }
   if (loader) {
     return (
-      <div>feaching..</div>
+      <div><Fetching/></div>
     )
   }
   else if (data === undefined || data.length === 0) {
     return (
-      <div><h1>No Data To Show</h1>{console.log("nodata")}</div>
+      <div className='sub'><h1>No Data To Show</h1>{console.log("nodata")}</div>
     )
   }
   else

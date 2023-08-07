@@ -3,6 +3,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import Heade from '../formHeader/header'
 import List from "./list"
+import Datafetching from '../loder/Datafetching'
 
 import {ToastContainer,toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,7 +32,7 @@ function Listform({selectform}) {
 
     if(loader){
       return(
-        <div>feaching..</div>
+        <div><Datafetching/></div>
       )
     }
     if(label===undefined||label.length===0){
@@ -46,6 +47,9 @@ function Listform({selectform}) {
           const res=await axios.post(`${BASE_URL}/api/sdata/${des.name}`,formData)
           console.log(res.data);
           toast.success(res.data.message)
+          setFormData({})
+          document.getElementById("showform").reset()
+
         } catch (error) {
           console.log(error)
         }

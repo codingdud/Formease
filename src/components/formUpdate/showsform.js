@@ -4,6 +4,7 @@ import { useState, useEffect, Fragment } from 'react'
 import Row from './row'
 import Erow from './Erow'
 import './show.css'
+import Datafetching from '../loder/Datafetching'
 
 
 function Showsform({ sselect }) {
@@ -27,7 +28,7 @@ function Showsform({ sselect }) {
     console.log(formData)
     if (loader) {
         return (
-            <div>feaching..</div>
+            <div><Datafetching/></div>
         )
     }
     else {
