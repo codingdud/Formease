@@ -1,18 +1,19 @@
-build:
-	docker build -t reactapp .
-
+# build:
+# 	cd frontendmain && $(make) build-dev
+# 	cd backend && $(make) build
 
 build-local:
-	docker build\
-		-t react-app-production:local\
-		--build-arg CADDYFILE=Caddyfile.local\
-		--build-arg BASE_URL=http://localhost:5000\
-		-f Dockerfile.production .
+	cd frontend && $(MAKE) build-local
+	cd backend && $(MAKE) build
+
+# run-local:
+# 	docker-compose up
 
 
-buid-production:
-	docker build \
-	-t react-app-production:production \
-	--build-arg CADDYFILE=Caddyfile.production \
-	--build-arg BASE_URL=https://codindud.co \
-	-f Dockerfile.production .
+run-local:
+	docker-compose -f Docker-compose-production.yml up
+
+
+build-production:
+	cd frontend && $(make) build-production
+	cd backend && $(make) build

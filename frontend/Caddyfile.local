@@ -1,0 +1,9 @@
+localhost {
+    root * /srv
+    route {
+        reverse_proxy /api/* http://localhost:5001
+        try_files docker  {path} {path}/ /index.html
+        file_server
+    }
+}
+
