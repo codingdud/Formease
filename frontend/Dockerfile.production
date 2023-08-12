@@ -39,6 +39,10 @@ COPY ${KEY} /etc/caddy/
 
 COPY --from=builder /app/build/ /srv
 
+#RUN caddy fmt --overwrite /etc/caddy/Caddyfile
+
+#CMD [ "caddy","run"]
+
 
 EXPOSE 80
 EXPOSE 443

@@ -3,8 +3,8 @@
 # 	cd backend && $(make) build
 
 build-local:
-	cd frontend && $(MAKE) build-local
-	cd backend && $(MAKE) build
+	cd frontend && make build-local
+	cd backend && make build
 
 # run-local:
 # 	docker-compose up

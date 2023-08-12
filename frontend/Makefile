@@ -10,7 +10,7 @@ build-local:
 		-f Dockerfile.production .
 
 
-buid-production:
+build-production:
 	docker build \
 	-t simpform:production \
 	--build-arg CADDYFILE=Caddyfile.production \
