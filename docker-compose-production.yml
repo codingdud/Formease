@@ -1,0 +1,49 @@
+version: '3'
+services:
+#frontend 
+  simpform:
+    image: simpform:local
+    restart: unless-stopped
+    #stdin_open: true
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - mern-app
+
+#api server      
+  api-server:
+    image: simpformapi:latest
+    restart: unless-stopped
+    env_file: ./app/.env.local
+    ports:
+      - "5001:5001"
+    networks:
+      - mern-app   
+    depends_on:
+       - mongo
+    
+  mongo:
+     image: mongo:latest
+     command: mongod --bind_ip_all
+     ports:
+       - "27017:27017"
+  #   volumes:
+  #     - mongo-data:/data/db
+# "mongodb//:mongo:27017/database" conneting string we have to use in our code  
+
+
+
+networks:
+  mern-app:
+    driver: bridge
+
+
+
+volumes:
+#   mongo-data:
+#     driver: local
+  caddy-data:
+    driver: local
+  caddy-configs:
+    driver: local  
