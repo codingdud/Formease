@@ -1,6 +1,6 @@
  docker build -t simpform:lates -t simpform:v0.0.0 .  
 
- docker run -t -p 3000:3000 -p 80:80 (image id)
+ 
 
   docker run -d -p 3000:3000 (image id)
 

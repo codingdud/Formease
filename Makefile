@@ -15,5 +15,5 @@ run-local:
 
 
 build-production:
-	cd frontend && $(make) build-production
-	cd backend && $(make) build
+	cd frontend && make build-production
+	cd backend && make build

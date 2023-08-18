@@ -30,12 +30,14 @@ RUN npm run build
 
 FROM caddy:2.7.2-alpine
 
-ARG CADDYFILE
-COPY ${CADDYFILE} /etc/caddy/Caddyfile
+
 ARG CERT
 COPY ${CERT} /etc/caddy/
 ARG KEY
 COPY ${KEY} /etc/caddy/
+ARG CADDYFILE
+COPY ${CADDYFILE} /etc/caddy/Caddyfile
+
 
 COPY --from=builder /app/build/ /srv
 
