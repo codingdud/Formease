@@ -1,5 +1,4 @@
-codingdud.co {
-    tls cert.pem key.pem
+codingdud.co:80 {
     root * /srv
     route {
         reverse_proxy /api* api-server:5001

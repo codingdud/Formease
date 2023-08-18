@@ -2,7 +2,7 @@ version: '3'
 services:
 #frontend 
   simpform:
-    image: simpform:local
+    image: simpform:production
     restart: unless-stopped
     #stdin_open: true
     ports:

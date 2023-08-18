@@ -1,0 +1,28 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    font-family: azere;
+    gap:10px;
+    padding: 20px;
+    align-items: center;
+}
+
+.withimg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 100px;
+    padding: 0px 50px;
+}
+
+.img{
+    width:90%;
+    align-items: center;
+}
+li{
+    padding:10px;
+}
+
+.deschome{
+    margin: 50px;
+}

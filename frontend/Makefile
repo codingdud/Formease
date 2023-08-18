@@ -16,5 +16,8 @@ build-production:
 	--build-arg CADDYFILE=Caddyfile.production \
 	--build-arg CERT=cert.pem \
 	--build-arg KEY=key.pem \
-	--build-arg BASE_URL=http://simpform.codindud.co \
+	--build-arg BASE_URL=http://simpform.codingdud.co \
 	-f Dockerfile.production .
+
+run-local:
+		
