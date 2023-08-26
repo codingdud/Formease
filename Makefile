@@ -11,7 +11,7 @@ build-local:
 
 
 run-local:
-	docker-compose -f Docker-compose-production.yml up
+	docker-compose -f docker-compose-production.yml up
 
 
 build-production:
