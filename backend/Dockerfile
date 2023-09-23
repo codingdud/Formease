@@ -29,7 +29,8 @@ RUN pm2 link pxqciywdec9ngvu rsgbhm4b5qd5hw4
 #RUN pm2 start app.js
 
 
-CMD ["pm2-runtime", "app.js", "-i", "3" ]
+#CMD ["pm2-runtime", "app.js", "-i", "3" ]
+CMD ["supervisor","app.js"]
 
 
 #CMD [ "top" ]
