@@ -16,7 +16,7 @@ build-production:
 	--build-arg CADDYFILE=Caddyfile.production \
 	--build-arg CERT=cert.pem \
 	--build-arg KEY=key.pem \
-	--build-arg BASE_URL=https://codingdud.co \
+	--build-arg BASE_URL=https://formease.codingdud.co \
 	-f Dockerfile.production .
 
 run-local:
