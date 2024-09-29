@@ -60,7 +60,7 @@ function Listform({selectform}) {
       }
       return (
         <form id='showform' className='formhead' onSubmit={handleSubmit}>
-          <Heade text={des.name+" From"}/>
+          <Heade text={des.name+" From"} path={selectform}/>
           <div className='sub'>{des.desc}</div>
           <div className='inputcontainer'>
           {
