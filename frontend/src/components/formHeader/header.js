@@ -10,7 +10,7 @@ function Header({text,path}) {
         <svg onClick={()=>{navigate(-1)}} xmlns="http://www.w3.org/2000/svg" width="44" height="37" viewBox="0 0 44 37" fill="none">
         <path d="M4 18.5L18.4 4.09998M4 18.5L18.4 32.9M4 18.5H40" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <a href=''>{baseUrl+path}</a>
+        <a href={baseUrl + path} title={`Visit ${baseUrl}${path}`}>{baseUrl + path}</a>
         <p className='conten'>
             {text}
         </p>
