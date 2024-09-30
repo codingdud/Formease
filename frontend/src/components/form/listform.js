@@ -66,6 +66,7 @@ function Listform({selectform}) {
           {
           label.map((fild)=>(
             <List
+            key={fild}
             list={fild}
             val={formData.fild}
             change={handleChange}
