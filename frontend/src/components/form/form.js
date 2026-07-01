@@ -55,7 +55,8 @@ function Form({ setSelectform, selectform }) {
   }
   else if (data === undefined || data.length === 0) {
     return (
-      <div className="sub"><h1 style={{"display":"inline","margin":"10px"}}>Create Form</h1>{console.log("nodata")}
+      <div className="sub"><h1 style={{"display":"inline","margin":"10px"}}>Create Form</h1>
+      <div>No forms are available yet. Create a form to get started.</div>
       <Link to="create">
       <Addform/>
       </Link>
