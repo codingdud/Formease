@@ -13,6 +13,7 @@ dotenv.config({path:'./.env.local'})
 
 
 
+app.use('/api/health',require('./routes/health-route'));
 app.use('/api/fdata',require('./routes/fdata-route'));
 app.use('/api/sdata',require('./routes/sdata-route'));
 
